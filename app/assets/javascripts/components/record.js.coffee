@@ -52,11 +52,11 @@
           ref: 'amount'
       React.DOM.td null,
         React.DOM.a
-          className: 'button tiny'
+          className: 'button tiny info'
           onClick: @handleEdit
           'Update'
         React.DOM.a
-          className: 'button tiny alert'
+          className: 'button tiny warning'
           onClick: @handleToggle
           'Cancel'
   recordRow: ->

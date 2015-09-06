@@ -1,6 +1,6 @@
 @Records = React.createClass
   getInitialState: ->
-    records: @props.data
+    records: @props.records
 
   getDefaultProps: ->
     records: []
@@ -52,7 +52,7 @@
         React.createElement RecordForm, handleNewRecord: @addRecord
       React.DOM.hr null
       React.DOM.table
-        className: 'records small-12 table table-bordered'
+        className: 'records-table small-12 table table-bordered'
         React.DOM.thead null,
           React.DOM.tr null,
             React.DOM.th null, 'Date'

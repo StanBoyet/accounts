@@ -16,7 +16,7 @@
     , 'JSON'
   render: ->
     React.DOM.div
-      className: 'column small-12'
+      className: 'column small-12 large-offset-3 large-6 medium-offset-2 medium-8'
       React.DOM.form
         className: 'form-inline'
         onSubmit: @handleSubmit
