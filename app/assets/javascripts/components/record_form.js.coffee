@@ -44,12 +44,11 @@
             name: 'users'
             multiple: true
             onChange: @handleChange
-            React.DOM.option
-              value: @props.users[0].id
-              @props.users[0].name
-            React.DOM.option
-              value: @props.users[1].id
-              @props.users[1].name
+            for user in @props.users
+              do (user) ->
+                React.DOM.option
+                  value: user.id
+                  user.name
         React.DOM.div
           className: 'form-group'
           React.DOM.input
