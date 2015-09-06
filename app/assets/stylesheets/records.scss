@@ -1,3 +1,15 @@
 // Place all the styles related to the Records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.panel {
+  &.success {
+    background-color: $success-color;
+  }
+  &.info {
+    background-color: $info-color;
+  }
+  &.warning {
+    background-color: $warning-color;
+  }
+}

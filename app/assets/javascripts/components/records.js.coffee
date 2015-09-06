@@ -44,7 +44,7 @@
       React.DOM.div
         className: 'row'
         React.createElement AmountBox, type: 'success', amount: @credits(), text: 'Credit'
-        React.createElement AmountBox, type: 'danger', amount: @debits(), text: 'Debit'
+        React.createElement AmountBox, type: 'warning', amount: @debits(), text: 'Debit'
         React.createElement AmountBox, type: 'info', amount: @balance(), text: 'Balance'
 
       React.DOM.div
