@@ -51,7 +51,7 @@
 
       React.DOM.div
         className: 'row'
-        React.createElement RecordForm, handleNewRecord: @addRecord
+        React.createElement RecordForm, handleNewRecord: @addRecord, users: @state.users
       React.DOM.hr null
       React.DOM.table
         className: 'records-table small-12 table table-bordered'
