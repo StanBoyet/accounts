@@ -5,14 +5,15 @@
     e.preventDefault()
     @setState edit: !@state.edit
   handleDelete: (e) ->
-    e.preventDefault()
-    # yeah... jQuery doesn't have a $.delete shortcut method
-    $.ajax
-      method: 'DELETE'
-      url: "/records/#{ @props.record.id }"
-      dataType: 'JSON'
-      success: () =>
-        @props.handleDeleteRecord @props.record
+    if confirm('Sure ?')
+      e.preventDefault()
+      # yeah... jQuery doesn't have a $.delete shortcut method
+      $.ajax
+        method: 'DELETE'
+        url: "/records/#{ @props.record.id }"
+        dataType: 'JSON'
+        success: () =>
+          @props.handleDeleteRecord @props.record
   handleEdit: (e) ->
     e.preventDefault()
     data =
@@ -51,11 +52,11 @@
           ref: 'amount'
       React.DOM.td null,
         React.DOM.a
-          className: 'btn btn-default'
+          className: 'button tiny'
           onClick: @handleEdit
           'Update'
         React.DOM.a
-          className: 'btn btn-danger'
+          className: 'button tiny alert'
           onClick: @handleToggle
           'Cancel'
   recordRow: ->
@@ -65,11 +66,11 @@
       React.DOM.td null, amountFormat(@props.record.amount)
       React.DOM.td null,
         React.DOM.a
-          className: 'btn btn-default'
+          className: 'button tiny'
           onClick: @handleToggle
           'Edit'
         React.DOM.a
-          className: 'btn btn-danger'
+          className: 'button tiny alert'
           onClick: @handleDelete
           'Delete'
   render: ->
