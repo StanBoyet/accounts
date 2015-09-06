@@ -1,9 +1,11 @@
 @Records = React.createClass
   getInitialState: ->
     records: @props.records
+    users: @props.users
 
   getDefaultProps: ->
     records: []
+    users: []
 
   credits: ->
     credits = @state.records.filter (val) -> val.amount >= 0

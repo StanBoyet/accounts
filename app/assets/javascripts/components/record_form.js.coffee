@@ -39,6 +39,15 @@
         React.DOM.div
           className: 'form-group'
           React.DOM.input
+            type: 'text'
+            className: 'form-control'
+            placeholder: 'Users'
+            name: 'users'
+            value: @state.users
+            onChange: @handleChange
+        React.DOM.div
+          className: 'form-group'
+          React.DOM.input
             type: 'number'
             className: 'form-control'
             placeholder: 'Amount'
