@@ -15,36 +15,38 @@
       @setState @getInitialState()
     , 'JSON'
   render: ->
-    React.DOM.form
-      className: 'form-inline'
-      onSubmit: @handleSubmit
-      React.DOM.input
-        type: 'text'
-        className: 'form-control'
-        placeholder: 'Date'
-        name: 'date'
-        value: @state.date
-        onChange: @handleChange
-      React.DOM.div
-        className: 'form-group'
+    React.DOM.div
+      className: 'column small-12'
+      React.DOM.form
+        className: 'form-inline'
+        onSubmit: @handleSubmit
         React.DOM.input
-          type: 'text'
+          type: 'date'
           className: 'form-control'
-          placeholder: 'Title'
-          name: 'title'
-          value: @state.title
+          placeholder: 'Date'
+          name: 'date'
+          value: @state.date
           onChange: @handleChange
-      React.DOM.div
-        className: 'form-group'
-        React.DOM.input
-          type: 'number'
-          className: 'form-control'
-          placeholder: 'Amount'
-          name: 'amount'
-          value: @state.amount
-          onChange: @handleChange
-      React.DOM.button
-        type: 'submit'
-        className: 'btn btn-primary'
-        disabled: !@valid()
-        'Create record'
+        React.DOM.div
+          className: 'form-group'
+          React.DOM.input
+            type: 'text'
+            className: 'form-control'
+            placeholder: 'Title'
+            name: 'title'
+            value: @state.title
+            onChange: @handleChange
+        React.DOM.div
+          className: 'form-group'
+          React.DOM.input
+            type: 'number'
+            className: 'form-control'
+            placeholder: 'Amount'
+            name: 'amount'
+            value: @state.amount
+            onChange: @handleChange
+        React.DOM.button
+          type: 'submit'
+          className: 'btn btn-primary'
+          disabled: !@valid()
+          'Create record'

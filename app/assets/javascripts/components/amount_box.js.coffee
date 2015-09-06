@@ -1,9 +1,9 @@
 @AmountBox = React.createClass
   render: ->
     React.DOM.div
-      className: 'col-md-4'
+      className: 'column small-4'
       React.DOM.div
-        className: "panel panel-#{ @props.type }"
+        className: "panel callout"
         React.DOM.div
           className: 'panel-heading'
           @props.text

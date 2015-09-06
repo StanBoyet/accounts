@@ -14,7 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'slim-rails'
 
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'foundation-rails'
 gem 'react-rails', '~> 1.0'
 
 group :development, :test do
@@ -22,4 +22,3 @@ group :development, :test do
 	gem 'web-console', '~> 2.0'
 	gem 'spring'
 end
-
