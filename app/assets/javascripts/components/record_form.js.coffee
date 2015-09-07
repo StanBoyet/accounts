@@ -3,6 +3,11 @@
     title: ''
     date: ''
     amount: ''
+    user_ids: []
+  handleMultipleSelect: (e) ->
+    options = e.target.options
+    selectedOptions = _.where(options, selected: true)
+    @setState 'user_ids': _.pluck(selectedOptions, 'value')
   handleChange: (e) ->
     name = e.target.name
     @setState "#{ name }": e.target.value
@@ -10,7 +15,9 @@
     @state.title && @state.date && @state.amount
   handleSubmit: (e) ->
     e.preventDefault()
-    $.post '', { record: @state }, (data) =>
+    window.foo = @state
+    $.post '/records', { record: @state }, (data) =>
+      console.log data
       @props.handleNewRecord data
       @setState @getInitialState()
     , 'JSON'
@@ -43,12 +50,12 @@
             placeholder: 'Users'
             name: 'users'
             multiple: true
-            onChange: @handleChange
-            for user in @props.users
-              do (user) ->
-                React.DOM.option
-                  value: user.id
-                  user.name
+            onChange: @handleMultipleSelect
+            _.map @props.users, (user) ->
+              React.DOM.option
+                key: user.id
+                value: user.id
+                user.name
         React.DOM.div
           className: 'form-group'
           React.DOM.input

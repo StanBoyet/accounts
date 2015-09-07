@@ -15,6 +15,7 @@ gem 'slim-rails'
 
 gem 'foundation-rails'
 gem 'react-rails', '~> 1.0'
+gem 'underscore-rails'
 
 group :production do
 	gem 'pg'
