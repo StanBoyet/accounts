@@ -3,11 +3,12 @@
     title: ''
     date: ''
     amount: ''
-    user_ids: []
+    spender_id: ''
+    recipient_ids: []
   handleMultipleSelect: (e) ->
     options = e.target.options
     selectedOptions = _.where(options, selected: true)
-    @setState 'user_ids': _.pluck(selectedOptions, 'value')
+    @setState 'recipient_ids': _.pluck(selectedOptions, 'value')
   handleChange: (e) ->
     name = e.target.name
     @setState "#{ name }": e.target.value
@@ -48,14 +49,26 @@
           React.DOM.select
             className: 'form-control'
             placeholder: 'Users'
-            name: 'users'
+            name: 'recipients'
             multiple: true
             onChange: @handleMultipleSelect
-            _.map @props.users, (user) ->
+            _.map @props.users, (recipient) ->
               React.DOM.option
-                key: user.id
-                value: user.id
-                user.name
+                key: recipient.id
+                value: recipient.id
+                recipient.name
+          React.DOM.div
+            className: 'form-group'
+            React.DOM.select
+              className: 'form-control'
+              placeholder: 'Users'
+              name: 'spender_id'
+              onChange: @handleChange
+              _.map @props.users, (spender) ->
+                React.DOM.option
+                  key: spender.id
+                  value: spender.id
+                  spender.name
         React.DOM.div
           className: 'form-group'
           React.DOM.input
