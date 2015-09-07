@@ -7,25 +7,23 @@ class RecordsController < ApplicationController
 
 	def create
 	  @record = Record.new(record_params)
-	  if @record.save
-	    render json: @record
+	  if record.save
+	    render json: record
 	  else
-	    render json: @record.errors, status: :unprocessable_entity
+	    render json: record.errors, status: :unprocessable_entity
 	  end
 	end
 
 	def destroy
-		@record = Record.find(params[:id])
-		@record.destroy
+		record.destroy
 		head :no_content
 	end
 
 	def update
-  	@record = Record.find(params[:id])
-    if @record.update(record_params)
-      render json: @record
+    if record.update(record_params)
+      render json: record
     else
-      render json: @record.errors, status: :unprocessable_entity
+      render json: record.errors, status: :unprocessable_entity
     end
   end
 
@@ -33,6 +31,10 @@ class RecordsController < ApplicationController
 
   def record_params
     params.require(:record).slice(:title, :amount, :date, :spender_id, :recipient_ids).permit!
+  end
+
+  def record
+    @record ||= Record.find(params[:id])
   end
 
 end

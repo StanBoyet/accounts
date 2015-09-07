@@ -5,4 +5,6 @@ class Record < ActiveRecord::Base
   has_many :debts, class_name: 'Joins::Debt'
   has_many :recipients, through: :debts, class_name: 'User', inverse_of: :bills
 
+  validates_presence_of :title, :amount
+
 end
