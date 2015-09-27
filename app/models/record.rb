@@ -7,8 +7,16 @@ class Record < ActiveRecord::Base
 
   validates_presence_of :title, :amount
 
+  def attributes
+    super.merge({spender_name: spender_name})
+  end
+
   def spender_name
-    spender.name
+    if spender
+      spender.name
+    else
+      ''
+    end
   end
 
 end
