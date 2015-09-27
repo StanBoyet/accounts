@@ -3,7 +3,7 @@
     title: ''
     date: ''
     amount: ''
-    spender_id: ''
+    spender_id: @props.users[0].id
     recipient_ids: []
   handleMultipleSelect: (e) ->
     options = e.target.options
