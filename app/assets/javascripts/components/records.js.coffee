@@ -59,6 +59,7 @@
           React.DOM.tr null,
             React.DOM.th null, 'Date'
             React.DOM.th null, 'Title'
+            React.DOM.th null, 'Spender'
             React.DOM.th null, 'Amount'
             React.DOM.th null, 'Actions'
         React.DOM.tbody null,

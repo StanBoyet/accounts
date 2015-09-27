@@ -16,9 +16,8 @@
     @state.title && @state.date && @state.amount
   handleSubmit: (e) ->
     e.preventDefault()
-    window.foo = @state
+    console.log @state
     $.post '/records', { record: @state }, (data) =>
-      console.log data
       @props.handleNewRecord data
       @setState @getInitialState()
     , 'JSON'

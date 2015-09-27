@@ -7,4 +7,8 @@ class Record < ActiveRecord::Base
 
   validates_presence_of :title, :amount
 
+  def spender_name
+    spender.name
+  end
+
 end
