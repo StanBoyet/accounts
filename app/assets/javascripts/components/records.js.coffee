@@ -1,6 +1,6 @@
 @Records = React.createClass
   getInitialState: ->
-    records: @props.records
+    records: _.sortBy(@props.records, 'date').reverse();
     users: @props.users
 
   getDefaultProps: ->
@@ -24,7 +24,7 @@
 
   addRecord: (record) ->
     records = React.addons.update(@state.records, { $push: [record] })
-    @setState records: records
+    @setState records: _.sortBy(records, 'date').reverse()
 
   updateRecord: (record, data) ->
     index = @state.records.indexOf record
