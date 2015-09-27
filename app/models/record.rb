@@ -8,7 +8,7 @@ class Record < ActiveRecord::Base
   validates_presence_of :title, :amount
 
   def attributes
-    super.merge({spender_name: spender_name})
+    super.merge({spender_name: spender_name, recipients: recipients})
   end
 
   def spender_name
